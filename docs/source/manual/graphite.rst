@@ -20,6 +20,12 @@ constantly stream metric values to a Graphite_ server:
                                                       .build(graphite);
     reporter.start(1, TimeUnit.MINUTES);
 
+The example above uses a TCP connection to the Graphite server, but you can do the same thing over UDP with the ``GraphiteUDP`` class:
+
+.. code-block:: java
+
+    final GraphiteUDP graphite = new GraphiteUDP(new InetSocketAddress("graphite.example.com", 2003));
+
 If you prefer to write metrics in batches using pickle, you can use the ``PickledGraphite``:
 
 .. code-block:: java
